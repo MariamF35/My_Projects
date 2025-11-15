@@ -4,21 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Getting Started with Three.js</title>
+
     <style>
       body {
-        margin: 0;
+        margin: 0; /* remove default browser margin */
       }
     </style>
-    <script src="index.js" type="importmap">
-			{
-				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+
+    <!--
+      Import map MUST be a separate <script> tag.
+      It CANNOT load index.js — it must contain ONLY JSON.
+      This tells the browser how to resolve "three" and "jsm/" imports.
+    -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
           "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
         }
-			}
-		</script>
+      }
+    </script>
   </head>
+
   <body>
+    <!-- 
+      This loads your JavaScript code.
+      MUST be type="module" because you are using import statements.
+    -->
     <script type="module" src="index.js"></script>
   </body>
 </html>
